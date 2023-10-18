@@ -1,6 +1,5 @@
 {
     "require": {
-        "vlucas/phpdotenv": "^5.5",
-        "jeroennoten/laravel-adminlte": "^3.9"
+        "vlucas/phpdotenv": "^5.5"
     }
 }
