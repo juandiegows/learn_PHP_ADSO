@@ -45,4 +45,22 @@ class GenderController extends Connection
         $mysqli->close();
         return $genders;
     }
+
+    public function update($id, $newName)
+    {
+        //conexion de la base de datos
+        $mysqli = $this->connect();
+        //evitar caracteres de connsultas
+        $newName = $mysqli->real_escape_string($newName);
+        //consulta
+        $sql = "UPDATE gender SET name = '$newName' WHERE id = $id";
+        //miramos si se actualizo
+        if ($mysqli->query($sql)) {
+            echo "Registro actualizado con éxito.";
+        } else {
+            echo "Error al actualizar el registro: " . $mysqli->error;
+        }
+        // Cerramos la conexion a la base de datos
+        $mysqli->close();
+    }
 }
