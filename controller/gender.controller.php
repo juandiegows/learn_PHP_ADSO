@@ -63,4 +63,20 @@ class GenderController extends Connection
         // Cerramos la conexion a la base de datos
         $mysqli->close();
     }
+
+    public   function delete($id)
+    {
+        //conexion de la base de datos
+        $mysqli = $this->connect();
+        //evitar caracteres de connsultas
+        $sql = "DELETE FROM gender WHERE id = $id";
+
+        if ($mysqli->query($sql)) {
+            echo "Registro eliminado con éxito.";
+        } else {
+            echo "Error al eliminar el registro: " . $mysqli->error;
+        }
+
+        $mysqli->close();
+    }
 }

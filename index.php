@@ -12,7 +12,8 @@ require_once(__DIR__ . '/controller/gender.controller.php');
 
 
 $controller = new GenderController();
-$controller->update(1, "Masculino 2");
+$controller->delete(1);
+// $controller->update(1, "Masculino 2");
 
 $genders = $controller->read();
 
