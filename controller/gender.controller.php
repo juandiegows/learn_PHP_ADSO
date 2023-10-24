@@ -24,4 +24,25 @@ class GenderController extends Connection
         // Cerramos la conexion a la base de datos
         $mysqli->close();
     }
+
+    public function read()
+    {
+        //conexion de la base de datos
+        $mysqli = $this->connect();
+        //consulta
+        $sql = "SELECT id, name FROM gender";
+        //recuperar los datos de la consulta
+        $result = $mysqli->query($sql);
+        //lista vacia
+        $genders = [];
+        //recorrer todas las filas y agregarlo en el vector
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $genders[] = $row;
+            }
+        }
+        // Cerramos la conexion a la base de datos
+        $mysqli->close();
+        return $genders;
+    }
 }

@@ -12,9 +12,15 @@ require_once(__DIR__ . '/controller/gender.controller.php');
 
 
 $controller = new GenderController();
+
+
+$genders = $controller->read();
+
+foreach ($genders as $gender) {
+    echo "<br>" . "ID: " . $gender['id'] . ", Nombre: " . $gender['name'] . "<br>";
+}
+
 $controller->create("Masculino");
-
-
 
 
 ?>
