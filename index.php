@@ -8,20 +8,18 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-require_once(__DIR__ . '/controller/gender.controller.php');
+// require_once(__DIR__ . "/process/create_gender.php");
 
 
-$controller = new GenderController();
-$controller->delete(1);
-// $controller->update(1, "Masculino 2");
-
-$genders = $controller->read();
-
-foreach ($genders as $gender) {
-    echo "<br>" . "ID: " . $gender['id'] . ", Nombre: " . $gender['name'] . "<br>";
+if (isset($_POST["send"])) {
+    require_once __DIR__ . "/process/create_gender.php";
 }
 
-// $controller->create("Masculino");
-
-
 ?>
+
+<form method="post" action="">
+    <input name="name">
+    <input name="send" type="submit" value="Enviar">
+    <?php echo $error["name"] ?? "" ?>
+    <h1> <?php echo $message ?? "" ?></h1>
+</form>
