@@ -8,7 +8,7 @@ if ($gender->name == "") {
     $valido = false;
     $error["name"]  = "Este campo es obligatorio";
 }
-if ($gender->name == "") {
+if ($_POST["last_name"] == "") {
     $valido = false;
     $error["last_name"]  = "Este campo es obligatorio";
 }
